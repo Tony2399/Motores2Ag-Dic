@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 
 
-public class PointIU : MonoBehaviour
+public class PointIU : GameMonoBehaviour
 {
     public TMP_Text scoreText;
 
@@ -24,5 +24,10 @@ public class PointIU : MonoBehaviour
     public void OnClick_SubstractPoints()
     {
         PointManager.instance.RemovePoints(5);
+    }
+
+    public void OnClick_WinAnahuacEvent()
+    {
+        InvokeEvent<WinAnahuacRaffle_Event>(new WinAnahuacRaffle_Event());
     }
 }
