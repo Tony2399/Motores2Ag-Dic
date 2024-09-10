@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class EventManager
 {
     static EventManager m_instance;
-
+    //Singletoon solo exisitirá uno,
     public static EventManager m_Instance
     {
         get
@@ -17,9 +17,10 @@ public class EventManager
     }
 
     public delegate void EventDelegate<T>(T e) where T : GameEvent;
-
+    //se crea un diccionario, Type=abre, Delegate=Guarda funciones
     readonly Dictionary<Type, Delegate> _delegates = new Dictionary<Type, Delegate>();
 
+    //suscirbe el evento
     public void AddListener<T>(EventDelegate<T> _listener) where T : GameEvent
     {
         Delegate outDeletage;
@@ -33,7 +34,7 @@ public class EventManager
             _delegates[typeof(T)] = _listener;
         }
     }
-
+    //elimina el evento
     public void RemoveListener<T>(EventDelegate<T> _listener) where T : GameEvent
     {
         Delegate outDeletage;
@@ -52,6 +53,7 @@ public class EventManager
         }
     }
 
+    //no hay clase, ocurre un evento
     public void InvokeEvent<T>(T _event) where T : GameEvent
     {
         if (_event == null)
