@@ -5,8 +5,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     
-
-    // Update is called once per frame
     void Start()
     {
         StartCoroutine(CR_Destr());
@@ -14,13 +12,14 @@ public class Bullet : MonoBehaviour
     IEnumerator CR_Destr()
     {
         yield return new WaitForSeconds(3.0f);
-        DestroyImmediate(this.gameObject);
-        // Destroy(this.gameObject);
+        //DestroyImmediate(this.gameObject);
+        PoolManager.instance.ReturnObjectToPool(this.gameObject);
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy (this.gameObject);
+        PoolManager.instance.ReturnObjectToPool(this.gameObject);
         Destroy (other.gameObject);
     }
 }
