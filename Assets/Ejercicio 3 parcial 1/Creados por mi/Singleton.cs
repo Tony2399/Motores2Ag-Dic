@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Singleton : MonoBehaviour
 {
+    
     private static Singleton _instance;
     public static Singleton instance
     {
@@ -31,7 +33,7 @@ public class Singleton : MonoBehaviour
     }
     public void AddCoins(int _value)
     {
-        score += _value;
+       score += _value;
     }
 
 }

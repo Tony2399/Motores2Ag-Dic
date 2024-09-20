@@ -8,7 +8,7 @@ public class PoolObject
     public List<GameObject> m_inactiveObjects = new List<GameObject>();
     public int m_currentSize = 0;
     public int m_defaultCapacity = 10;
-    public int m_maxSize = 3;
+    public int m_maxSize = 50;
     public bool m_isExpandable = true;
     public Transform m_parent;
 }
@@ -18,12 +18,14 @@ public class PoolObject
 public class PoolManager : MonoBehaviour
 {
     private static PoolManager _instance;
-    public static PoolManager instance
+    public static PoolManager instance 
     {
 
         get { 
-            if(_instance == null)
-                _instance=GameObject.FindObjectOfType<PoolManager>();    
+            if(_instance == null) { 
+
+                _instance=GameObject.FindObjectOfType<PoolManager>();
+            }
             return _instance; 
         } 
     }
