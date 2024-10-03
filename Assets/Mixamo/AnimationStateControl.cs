@@ -20,8 +20,8 @@ public class AnimationStateControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool forwardPressed = Input.GetKeyUp(KeyCode.W);
-        bool runPressed = Input.GetKeyUp(KeyCode.LeftShift);
+        bool forwardPressed = Input.GetKey(KeyCode.W);
+        bool runPressed = Input.GetKey(KeyCode.LeftShift);
 
         if (forwardPressed && velocity < 1.0f) { 
             velocity += Time.deltaTime * acceleration;
